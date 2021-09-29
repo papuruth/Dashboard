@@ -1,0 +1,79 @@
+.auth__wrapper {
+  display: flex;
+}
+
+.auth__left__side {
+  max-width: 588px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: var(--dashboard-primary-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.auth__left__side > h1 {
+  color: #ffffff;
+  font-size: 72px;
+  font-weight: 700;
+}
+
+.auth__right__side {
+  width: calc(100% - 588px);
+  height: 100vh;
+  display: flex;
+  background-color: var(--dashboard-background-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.login__wrapper {
+  width: 100%;
+  max-width: 385px;
+  margin: auto;
+  color: #000000;
+}
+
+.login__heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login__heading > h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.login__other__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login__other__wrapper > button {
+  font-size: 12px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 180px;
+  height: 30px;
+}
+
+.login__form__wrapper {
+  background-color: #ffffff;
+  height: 317px;
+  border-radius: 20px;
+  padding: 30px;
+  line-height: 19px;
+
+}
+
+.login__form__wrapper > form > .login__button {
+  width: 100%;
+  background-color: var(--dashboard-primary-color);
+  border-radius: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 20px;
+}
