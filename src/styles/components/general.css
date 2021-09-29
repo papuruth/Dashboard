@@ -1,0 +1,35 @@
+.default__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.default__button > .start__icon {
+  padding: 0px 10px;
+}
+
+.default__button > .end__icon {
+  padding: 10px 0px;
+}
+
+.default__textfield {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.default__textfield > input[type='text'] {
+  margin-top: 10px;
+  height: 40px;
+  padding: 15px;
+  background-color: var(--dashboard-background-color);
+  border-radius: 10px;
+}
+
+.default__textfield > span {
+  color: red;
+  font-size: 12px;
+}

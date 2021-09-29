@@ -1,0 +1,48 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "prettier", "plugin:sonarjs/recommended", "plugin:jsx-a11y/recommended"],
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "plugins": ["react", "jsx-a11y", "import", "react-hooks", "sonarjs"],
+    "rules": {
+      "camelcase": "off",
+      "global-require": "off",
+      "no-console": "off",
+      "no-shadow": "off",
+      "import/no-cycle": [2, { "maxDepth": 1 }],
+      "max-len": ["error", { "code": 500 }],
+      "implicit-arrow-linebreak": "off",
+      "no-param-reassign": ["error", { "props": false }],
+      "no-use-before-define": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "react/jsx-props-no-spreading": "off",
+      "import/prefer-default-export": "off",
+      "no-underscore-dangle": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [".js", ".jsx"]
+        }
+      ],
+      "single-quote": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "sonarjs/max-switch-cases": 0,
+      "sonarjs/cognitive-complexity": "warn"
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [["@", "./src"]]
+        }
+      }
+    }
+  }

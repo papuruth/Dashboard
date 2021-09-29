@@ -1,0 +1,18 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap');
+/* Importing base.css */
+@import url('./base/base.css');
+
+/* Import components css */
+@import url('./components/general.css');
+
+/* Import erorr boundary css */
+@import url('./components/error-boundary.css');
+
+/* Import auth css */
+@import url('./components/auth.css');
+
+/* Import tailwind css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

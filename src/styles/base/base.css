@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dashboard-primary-color: #0d5f9a;
+  --dashboard-background-color: #f5f5f5;
+  --dashboard-secondary-color: #858585;
+  --dashboard-link-color: #346bd5;
+  --dashboard-grey-color: #b0b0b0;
+  --dashboard-icon-color: #999999;
+  --dashboard-light-red: #e9a0a0;
+  --dashboard-light-green: #9bdd7c;
+  --dashboard-field-color: #eaeaea;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif!important;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
