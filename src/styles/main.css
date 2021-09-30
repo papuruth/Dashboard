@@ -12,6 +12,15 @@
 /* Import auth css */
 @import url('./components/auth.css');
 
+/* Import dashboard css */
+@import url('./components/dashboard.css');
+
+/* Import users css */
+@import url('./components/user.css');
+
+/* Import settings css */
+@import url('./components/settings.css');
+
 /* Import tailwind css */
 @tailwind base;
 @tailwind components;

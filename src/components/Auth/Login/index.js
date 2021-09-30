@@ -1,58 +1,33 @@
-import React, { useState } from 'react';
-import Button from '@/utils/generalComponents/Button/index';
-import localization from '@/utils/localization/index';
+import React from 'react';
+import GoogleLogin from 'react-google-login';
+import { Link } from 'react-router-dom';
 import { AppleIcon, GoogleIcon } from '@/assets/index';
+import { useStateValue } from '@/utils/appState/StateProvider';
+import Button from '@/utils/generalComponents/Button/index';
 import TextField from '@/utils/generalComponents/TextField/index';
 import { GLOBAL_CONSTANTS } from '@/utils/globalConstants';
+import localization from '@/utils/localization/index';
+import { storage } from '@/utils/storage';
+import Auth from '../index';
 
 export default function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [formErrors, setFormErrors] = useState({ email: '', password: '' });
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [{ isLoggedIn }, dispatch] = useStateValue();
 
-  const getTypeName = (type) => {
-    if (type === 'email') {
-      return 'Email';
+  const responseGoogle = (data) => {
+    const { profileObj } = data || {};
+    if (Object.keys(profileObj).length) {
+      storage.saveUserData(profileObj);
+      dispatch({
+        type: 'SET_AUTH_STATE',
+        payload: true,
+      });
     }
-    if (type === 'password') {
-      return 'Password';
-    }
-    return '';
-  };
-  const geValidationMessage = (formValidationErrors, fieldIsValid, type, value) => {
-    if (!fieldIsValid && !value) {
-      formValidationErrors[type] = `${getTypeName(type)} is required`;
-    } else if (!fieldIsValid) {
-      formValidationErrors[type] = `${getTypeName(type)} is not valid`;
-    } else {
-      formValidationErrors[type] = '';
-    }
-    return formValidationErrors;
   };
 
-  const validateField = (type, value) => {
-    const {
-      REGEX: { EMAIL, PASSWORD },
-    } = GLOBAL_CONSTANTS;
-    const formValidationErrors = formErrors;
-    let fieldIsValid = true;
-    if (type === 'email') {
-      fieldIsValid = !!value && EMAIL.test(value);
-      Object.assign(formValidationErrors, { ...geValidationMessage(formValidationErrors, fieldIsValid, type, value) });
-    } else if (type === 'password') {
-      fieldIsValid = !!value && PASSWORD.test(value);
-      Object.assign(formValidationErrors, { ...geValidationMessage(formValidationErrors, fieldIsValid, type, value) });
-    }
-
-    const formIsValid = Object.values(formValidationErrors).every((item) => !item);
-    setFormErrors(formValidationErrors);
-    setIsFormValid(formIsValid);
+  const errorGoogleAuth = () => {
+    return false;
   };
 
-  const handleUserInput = ({ target: { name, value } }) => {
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
-    validateField(name, value);
-  };
   const {
     auth: {
       login: {
@@ -61,49 +36,56 @@ export default function Login() {
         provider: { google, apple },
         forgotPassword,
         signIn,
+        message,
+        register,
       },
     },
   } = localization;
 
+  const {
+    userData: { email, password },
+  } = GLOBAL_CONSTANTS;
   return (
-    <div className="login__wrapper">
-      <div className="login__heading">
-        <h1>{heading}</h1>
-        <h3>{subHeading}</h3>
-      </div>
-      <div className="login__other__wrapper py-4">
-        <Button startIcon={<GoogleIcon />} title={google} />
-        <Button startIcon={<AppleIcon />} title={apple} />
-      </div>
-      <div className="login__form__wrapper">
-        <form>
-          <TextField
-            id="email"
-            name="email"
-            label="Email address"
-            value={formData.email}
-            onChange={handleUserInput}
-            onBlur={handleUserInput}
-            placeholder="Email address"
-            isRequired
-            hasError={formErrors.email}
+    <Auth>
+      <div className="auth__form__wrapper">
+        <div className="auth__form__heading">
+          <h1>{heading}</h1>
+          <h3>{subHeading}</h3>
+        </div>
+        <div className="auth__form__other__wrapper py-4">
+          <GoogleLogin
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            render={(renderProps) => <Button startIcon={<GoogleIcon />} title={google} onClick={renderProps.onClick} />}
+            buttonText={google}
+            onSuccess={responseGoogle}
+            onFailure={errorGoogleAuth}
+            cookiePolicy="single_host_origin"
+            isSignedIn={isLoggedIn}
           />
-          <TextField
-            id="password"
-            name="password"
-            label="Password"
-            value={formData.password}
-            onChange={handleUserInput}
-            onBlur={handleUserInput}
-            placeholder="Password"
-            isRequired
-            hasError={formErrors.password}
+          <Button
+            startIcon={<AppleIcon />}
+            title={apple}
+            onClick={() => {
+              return null;
+            }}
           />
-          <p>{forgotPassword}</p>
-          <Button type="submit" title={signIn} isDisbaled={!isFormValid} className="login__button" />
-        </form>
+        </div>
+        <div className="login__form__wrapper">
+          <form>
+            <TextField type="email" id="email" name="email" label="Email address" value={email} placeholder="Email address" />
+            <TextField type="password" id="password" name="password" label="Password" value={password} placeholder="Password" />
+            <p className="forgot__password">{forgotPassword}</p>
+            <Button title={signIn} className="login__button" />
+          </form>
+        </div>
+        <div className="auth__footer__wrapper">
+          <p>
+            {message}
+            {' '}
+            <Link to="/register">{register}</Link>
+          </p>
+        </div>
       </div>
-      <div className="login__footer__wrapper" />
-    </div>
+    </Auth>
   );
 }

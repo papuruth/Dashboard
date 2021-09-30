@@ -1,25 +1,16 @@
-import Auth from '@/components/Auth/index';
+import React from 'react';
+import Login from '@/components/Auth/Login/index';
+import Signup from '@/components/Auth/Signup/index';
 import Dashboard from '@/components/Dashboard/index';
+import NotFound from '@/components/NotFound/index';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const routes = [
-  {
-    key: 'DashboardComponent',
-    path: '/',
-    exact: true,
-    component: Dashboard,
-  },
-  {
-    key: 'LoginComponent',
-    path: '/login',
-    exact: true,
-    component: Auth,
-  },
-  {
-    key: 'SignupComponent',
-    path: '/register',
-    exact: true,
-    component: Auth,
-  },
+  <PrivateRoute key="DashboardComponent" path="/" exact component={Dashboard} />,
+  <PublicRoute key="LoginComponent" path="/login" restricted exact component={Login} />,
+  <PublicRoute key="SignupComponent" path="/register" restricted exact component={Signup} />,
+  <PublicRoute key="NotFoundComponent" path="*" restricted={false} component={NotFound} />,
 ];
 
 export default routes;

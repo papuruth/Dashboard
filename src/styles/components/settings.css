@@ -1,0 +1,130 @@
+.user__settings__wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user__profile__section,
+.user__account__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user__profile__card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 505px;
+  padding: 30px 40px 30px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.profile__card__heading > h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.profile__card__content {
+  display: flex;
+  margin-top: 42px;
+}
+.profile__card__image {
+  height: 170px;
+  display: flex;
+  width: 140px;
+  flex-direction: column;
+
+  align-items: center;
+}
+.profile__card__image > img {
+  width: 100px;
+  height: 100px;
+}
+.profile__card__image > button {
+  background: #ffffff;
+  border: 1px solid #858585;
+  height: 21px;
+  width: 66px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  color: #858585;
+  margin-top: 5px;
+}
+.profile__card__edit__form {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-left: 30px;
+  width: 100%;
+}
+.profile__card__edit__form > form > .auth__form__group > .default__textfield > .input__field > input {
+  width: 140px;
+}
+.profile__card__edit__form > form > button,
+.settings__card__content > form > button {
+  width: 112px;
+  background: #519bd0;
+  border-radius: 10px;
+  float: right;
+  height: 40px;
+}
+.user__account__setting__card,
+.user__account__security__card,
+.user__account__danger__card {
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px 40px 30px 40px;
+}
+
+.settings__card__content {
+  margin-top: 30px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+
+.user__account__security__card {
+  margin-top: 30px;
+}
+.security__card__content {
+  margin-top: 30px;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+}
+
+.danger__card__heading {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #af0000;
+}
+.user__account__danger__card {
+  margin-top: 30px;
+}
+.danger__card__content > button {
+  background: #ffffff;
+  border: 1px solid #af0000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #af0000;
+  width: 100%;
+  margin-top: 30px;
+}
