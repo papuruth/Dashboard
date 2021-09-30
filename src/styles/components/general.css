@@ -6,7 +6,7 @@
 }
 
 .default__button > .start__icon {
-  padding: 0px 10px;
+  padding: 0px 4px;
 }
 
 .default__button > .end__icon {
@@ -21,15 +21,39 @@
   margin-bottom: 20px;
 }
 
-.default__textfield > input[type='text'] {
+.default__textfield > .input__field {
+  position: relative;
+}
+.default__textfield > .input__field > input {
+  width: 100%;
   margin-top: 10px;
   height: 40px;
   padding: 15px;
   background-color: var(--dashboard-background-color);
   border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.default__textfield > .input__field > .text__field__icon {
+  position: absolute;
+  top: 24px;
+  right: 15px;
 }
 
 .default__textfield > span {
   color: red;
   font-size: 12px;
+}
+
+.feature__development {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.feature__development > h1 {
+  font-weight: bold;
+  font-size: 24px;
 }

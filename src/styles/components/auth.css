@@ -27,31 +27,31 @@
   justify-content: center;
 }
 
-.login__wrapper {
+.auth__form__wrapper {
   width: 100%;
   max-width: 385px;
   margin: auto;
   color: #000000;
 }
 
-.login__heading {
+.auth__form__heading {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.login__heading > h1 {
+.auth__form__heading > h1 {
   font-size: 36px;
   font-weight: 700;
 }
 
-.login__other__wrapper {
+.auth__form__other__wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.login__other__wrapper > button {
+.auth__form__other__wrapper > button {
   font-size: 12px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -59,16 +59,17 @@
   height: 30px;
 }
 
-.login__form__wrapper {
+.login__form__wrapper,
+.signup__form__wrapper {
   background-color: #ffffff;
   height: 317px;
   border-radius: 20px;
   padding: 30px;
   line-height: 19px;
-
 }
 
-.login__form__wrapper > form > .login__button {
+.login__button,
+.signup__button {
   width: 100%;
   background-color: var(--dashboard-primary-color);
   border-radius: 10px;
@@ -77,3 +78,63 @@
   font-weight: 700;
   margin-top: 20px;
 }
+
+.signup__form__wrapper {
+  height: 495px;
+}
+
+.auth__footer__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.auth__footer__wrapper > p > a {
+  color: var(--dashboard-link-color);
+}
+
+.auth__form__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth__form__group > .default__textfield > .input__field > input {
+  width: 150px;
+}
+
+.forgot__password {
+  color: var(--dashboard-link-color);
+}
+
+.signup__terms {
+  display: flex;
+  align-items: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+.signup__terms > input {
+  width: 16px;
+  height: 16px;
+  margin-right: 13px;
+  border-radius: 3px;
+  background-color: var(--dashboard-primary-color);
+}
+.signup__terms > .anchor__link {
+  margin-left: 5px;
+  color: var(--dashboard-link-color);
+}
+
+/* Media Queries Auth.css */
+@media (max-width: 1280px) {
+  .auth__wrapper > .auth__left__side {
+    display: none;
+  }
+  .auth__wrapper > .auth__right__side {
+    width: 100%;
+  }
+}
+/* Ends Here */

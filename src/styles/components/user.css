@@ -1,0 +1,171 @@
+.user__list__wrapper {
+  display: flex;
+  padding: 40px 50px 44px 50px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  flex-direction: column;
+}
+
+.user__list__header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.user__list__header > .header__heading {
+  width: 250px;
+}
+
+.user__list__search > .input__field > input {
+  border-radius: 10px;
+  height: 30px;
+}
+
+.user__list__search > .input__field > input::placeholder {
+  font-size: 14px;
+  line-height: 17px;
+  color: #858585;
+}
+
+.user__list__search > .input__field > .text__field__icon {
+  top: 20px;
+}
+.user__list__filter,
+.user__list__add {
+  height: 45px;
+}
+.user__filter__button {
+  background: #ffffff;
+  border: 1px solid #b0b0b0;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: #b0b0b0;
+  width: 84px;
+  margin-right: 20px;
+  height: 30px;
+}
+.user__add__button {
+  background-color: var(--dashboard-primary-color);
+  color: #ffffff;
+  border-radius: 10px;
+  width: 84px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  height: 30px;
+}
+.user__list__table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .user__list__table > table {
+    width: 700px;
+  }
+  .user__list__table {
+    overflow: auto;
+  }
+  .user__list__search > .input__field > input::placeholder {
+    width: 30px;
+    text-overflow: clip;
+  }
+}
+
+.user__list__item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 66px;
+  background: #ededed;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.user__list__item > .list__item__name {
+  width: 180px;
+}
+.user__list__item > .list__item__email {
+  width: 200px;
+}
+.user__list__item > .list__item__gender {
+  width: 70px;
+}
+.user__list__item > .list__item__usertype {
+  width: 60px;
+}
+.user__list__table__pagination {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 10px;
+}
+.user__list__table__pagination > button {
+  margin: 0px 5px;
+  height: 30px;
+  width: 30px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.no__data__found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.filter__item {
+  position: relative;
+}
+.filter__item__btn__icon {
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 14px;
+  font-weight: bold;
+}
+.filter__item__btn__icon::after {
+  border-style: solid;
+  border-color: #858585;
+  border-width: 2px 2px 0 0;
+  content: '';
+  display: inline-block;
+  height: 8px;
+  right: 5px;
+  position: absolute;
+  vertical-align: top;
+  width: 8px;
+  top: 3px;
+  transform: rotate(135deg);
+}
+.filter__checkbox {
+  margin-right: 8px;
+}
+
+.filter__dialog__actions {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 20px;
+  width: 100%;
+}
+.filter__dialog__actions > button {
+  background-color: var(--dashboard-primary-color);
+  border-radius: 10px;
+  margin-right: 5px;
+  width: 100%;
+  color: #ffffff;
+}

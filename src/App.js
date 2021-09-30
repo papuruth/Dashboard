@@ -1,21 +1,23 @@
 import React from 'react';
-import { Route, Router, Switch } from 'react-router';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import { useStateValue } from './utils/appState/StateProvider';
 import ErrorBoundary from './utils/generalComponents/ErrorBoundary/index';
-import history from './utils/routes/history';
 import routes from './utils/routes/index';
 
 function App() {
+  const [{primaryLoader}] = useStateValue();
   return (
     <div>
-      <Router history={history}>
+      <BrowserRouter>
         <ErrorBoundary>
-          <Switch>
-            {routes.map((item) => (
-              <Route {...item} />
-            ))}
-          </Switch>
+          <Switch>{routes.map((route) => route)}</Switch>
         </ErrorBoundary>
-      </Router>
+      </BrowserRouter>
+      {primaryLoader && (
+        <div id="preloader">
+          <div id="loader" />
+        </div>
+      )}
     </div>
   );
 }
