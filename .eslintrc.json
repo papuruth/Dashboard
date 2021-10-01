@@ -1,11 +1,11 @@
 {
     "parser": "babel-eslint",
-    "extends": ["airbnb", "prettier", "plugin:sonarjs/recommended", "plugin:jsx-a11y/recommended"],
+    "extends": ["airbnb", "prettier", "plugin:jsx-a11y/recommended"],
     "env": {
       "browser": true,
       "jest": true
     },
-    "plugins": ["react", "jsx-a11y", "import", "react-hooks", "sonarjs"],
+    "plugins": ["react", "jsx-a11y", "import", "react-hooks"],
     "rules": {
       "camelcase": "off",
       "global-require": "off",
@@ -34,9 +34,7 @@
       ],
       "single-quote": "off",
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "sonarjs/max-switch-cases": 0,
-      "sonarjs/cognitive-complexity": "warn"
+      "react-hooks/exhaustive-deps": "warn"
     },
     "settings": {
       "import/resolver": {
