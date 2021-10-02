@@ -21,7 +21,7 @@ export default function TextField({
       {label}
       <div className="input__field">
         <input
-          id={id}
+          id={id || name || label}
           type={type}
           name={name}
           value={value}

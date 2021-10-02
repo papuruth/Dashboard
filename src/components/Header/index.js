@@ -1,10 +1,18 @@
 import React from 'react';
-import { StyledContainer } from './styles';
+import Button from '@/utils/generalComponents/Button';
+import { useStateValue } from '@/utils/appState/StateProvider';
+import { toggleDrawerAction } from '@/utils/appState/appActions';
 
 export default function Header() {
+  const [{ mountDrawer }, dispatch] = useStateValue();
+  const openDrawer = () => {
+    dispatch(toggleDrawerAction(!mountDrawer));
+  };
   return (
-    <StyledContainer>
-      <h1>Header component!</h1>
-    </StyledContainer>
+    <header className="dashboard__header">
+      <div className="header__content">
+        <Button onClick={openDrawer} title={<i className="fa fa-bars" />} />
+      </div>
+    </header>
   );
 }
