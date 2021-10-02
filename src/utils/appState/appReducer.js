@@ -1,4 +1,5 @@
 import { storage } from '../storage';
+import { appConstants } from './appConstants';
 
 const userData = JSON.parse(storage.getUserData());
 export const initialState = {
@@ -6,18 +7,21 @@ export const initialState = {
   userList: [],
   screenType: 'dashboard',
   primaryLoader: false,
+  mountDrawer: false,
 };
 
 export default function appReducer(state, { type, payload }) {
   switch (type) {
-    case 'SET_AUTH_STATE':
+    case appConstants.SET_AUTH_STATE:
       return { ...state, isLoggedIn: payload };
-    case 'SET_USER_LIST':
+    case appConstants.SET_USER_LIST:
       return { ...state, userList: payload };
-    case 'SET_SCREEN_TYPE':
+    case appConstants.SET_SCREEN_TYPE:
       return { ...state, screenType: payload };
-    case 'TOGGLE_LOADER':
+    case appConstants.SET_LOADER_STATE:
       return { ...state, primaryLoader: payload };
+    case appConstants.SET_DRAWER_STATE:
+      return { ...state, mountDrawer: payload };
     default:
       return state;
   }

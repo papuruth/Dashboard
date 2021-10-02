@@ -2,7 +2,9 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
 import { AppleIcon, GoogleIcon } from '@/assets/index';
+import { setAuthStateAction } from '@/utils/appState/appActions';
 import { useStateValue } from '@/utils/appState/StateProvider';
+import { refreshTokenSetup } from '@/utils/commonFunctions';
 import Button from '@/utils/generalComponents/Button/index';
 import TextField from '@/utils/generalComponents/TextField/index';
 import { GLOBAL_CONSTANTS } from '@/utils/globalConstants';
@@ -17,10 +19,8 @@ export default function Login() {
     const { profileObj } = data || {};
     if (Object.keys(profileObj).length) {
       storage.saveUserData(profileObj);
-      dispatch({
-        type: 'SET_AUTH_STATE',
-        payload: true,
-      });
+      dispatch(setAuthStateAction(true));
+      refreshTokenSetup(data);
     }
   };
 

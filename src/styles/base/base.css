@@ -112,3 +112,32 @@ input:focus {
     transform: rotate(360deg);
   }
 }
+
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--dashboard-icon-color) var(--dashboard-primary-color);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: var(--dashboard-primary-color);
+  border-radius: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: var(--dashboard-primary-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--dashboard-icon-color);
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

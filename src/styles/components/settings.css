@@ -128,3 +128,24 @@
   width: 100%;
   margin-top: 30px;
 }
+
+@media (max-width: 768px) {
+  .user__settings__wrapper {
+    flex-wrap: wrap;
+  }
+  .profile__card__content {
+    flex-wrap: wrap;
+  }
+  .user__account__section {
+    margin-top: 30px;
+  }
+  .user__profile__card,
+  .user__account__setting__card,
+  .user__account__section,
+  .user__profile__section {
+    width: 100%;
+  }
+  .profile__card__edit__form > form > .auth__form__group > .default__textfield > .input__field > input {
+    width: 100%;
+  }
+}
