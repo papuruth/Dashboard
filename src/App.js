@@ -5,7 +5,7 @@ import ErrorBoundary from './utils/generalComponents/ErrorBoundary/index';
 import routes from './utils/routes/index';
 
 function App() {
-  const [{primaryLoader}] = useStateValue();
+  const [{ primaryLoader }] = useStateValue();
   return (
     <div>
       <BrowserRouter>

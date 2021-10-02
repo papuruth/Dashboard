@@ -1,30 +1,32 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import localization from '@/utils/localization/index';
+import React, { useState } from 'react';
+import Header from '@/components/Header';
+import { toggleDrawerAction } from '@/utils/appState/appActions';
+import { useStateValue } from '@/utils/appState/StateProvider';
+import useWindowWidth from '@/utils/hooks/useWindowWidth';
 import RenderDrawerItem from './RenderDrawerItem';
 
 export default function RenderDrawer({ handleScreenType }) {
+  const [{ mountDrawer }, dispatch] = useStateValue();
   const [activeIndex, setActiveIndex] = useState(0);
-  const {
-    dashboard: { dash },
-  } = localization;
+  const { width } = useWindowWidth();
 
   const handleSelected = (data, index) => {
     setActiveIndex(index);
     handleScreenType(data?.id);
   };
 
+  const handleCloseDrawer = (flag) => {
+    dispatch(toggleDrawerAction(flag));
+  };
+
   return (
-    <div className="drawer__wrapper">
-      <div className="drawer__list__wrapper">
-        <h1>{dash}</h1>
-        <div className="drawer__mobile">
-          <RenderDrawerItem handleSelected={handleSelected} selectedIndex={activeIndex} />
-        </div>
-        <div className="drawer__desktop">
-          <RenderDrawerItem handleSelected={handleSelected} selectedIndex={activeIndex} />
-        </div>
-      </div>
+    <div className="main__drawer">
+      <nav className="dashboard__navbar">
+        <Header />
+        <RenderDrawerItem handleSelected={handleSelected} selectedIndex={activeIndex} open={mountDrawer} closeDrawer={handleCloseDrawer} />
+        {width >= 1367 ? <RenderDrawerItem handleSelected={handleSelected} selectedIndex={activeIndex} open closeDrawer={handleCloseDrawer} /> : null}
+      </nav>
     </div>
   );
 }

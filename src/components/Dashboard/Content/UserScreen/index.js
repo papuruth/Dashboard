@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AddIcon, FilterIcon, SearchIcon } from '@/assets';
+import { setUserListAction, startLoaderAction } from '@/utils/appState/appActions';
 import { useStateValue } from '@/utils/appState/StateProvider';
 import Button from '@/utils/generalComponents/Button';
 import RenderModal from '@/utils/generalComponents/Modal';
@@ -26,28 +27,16 @@ export default function UsersScreen() {
 
   useEffect(() => {
     (async () => {
-      dispatch({
-        type: 'TOGGLE_LOADER',
-        payload: true,
-      });
+      dispatch(startLoaderAction(true));
       const { response } = await getUsersService();
       if (response?.length) {
         response.sort((a, b) => a.userType - b.userType);
-        dispatch({
-          type: 'SET_USER_LIST',
-          payload: response,
-        });
+        dispatch(setUserListAction(response));
         setFilteredData(response);
       } else {
-        dispatch({
-          type: 'SET_USER_LIST',
-          payload: [],
-        });
+        dispatch(setUserListAction([]));
       }
-      dispatch({
-        type: 'TOGGLE_LOADER',
-        payload: false,
-      });
+      dispatch(startLoaderAction(false));
     })();
   }, [dispatch]);
 
@@ -121,7 +110,7 @@ export default function UsersScreen() {
           <h1>Users Records</h1>
         </div>
         <div className="header__actions">
-          <div>
+          <div className="users__screen">
             <div className="header__search">
               <TextField className="user__list__search" endIcon={<SearchIcon />} value={searchQuery} onChange={handleSearch} placeholder={search} />
             </div>
@@ -143,10 +132,10 @@ export default function UsersScreen() {
         </div>
       </div>
       <div className="user__list__table">
-        <table>
-          <tbody>
-            {filteredData.length > 0
-              ? filteredData.map((item) => (
+        {filteredData.length > 0 ? (
+          <table>
+            <tbody>
+              {filteredData.map((item) => (
                 <tr className="user__list__item" key={item.id}>
                   <td className="user__list__image">
                     <RenderUserImageIcon src={item.image} alt={item.name} />
@@ -156,10 +145,12 @@ export default function UsersScreen() {
                   <td className="list__item__gender">{getGender(item)}</td>
                   <td className="list__item__usertype">{getUserType(item)}</td>
                 </tr>
-                ))
-              : renderNoDataFound()}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          renderNoDataFound()
+        )}
         <div className="user__list__table__pagination">
           {paginationData.map((item) => (
             <Button startIcon={item.icon} title={item.title} key={item.id} />

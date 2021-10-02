@@ -7,6 +7,7 @@ import localization from '@/utils/localization/index';
 import Button from '@/utils/generalComponents/Button';
 import { useStateValue } from '@/utils/appState/StateProvider';
 import { storage } from '@/utils/storage';
+import { setAuthStateAction } from '@/utils/appState/appActions';
 
 export default function RenderContentHeader({ title }) {
   const [{ isLoggedIn }, dispatch] = useStateValue();
@@ -16,10 +17,7 @@ export default function RenderContentHeader({ title }) {
   } = localization;
 
   const handleLogout = () => {
-    dispatch({
-      type: 'SET_AUTH_STATE',
-      payload: !isLoggedIn,
-    });
+    dispatch(setAuthStateAction(!isLoggedIn));
     storage.clearStorage();
   };
 
