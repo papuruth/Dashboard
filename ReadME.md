@@ -1,4 +1,6 @@
 ## [Dashboard](https://p-folio.netlify.app)
+![image](https://user-images.githubusercontent.com/13766195/135742053-13cef994-6a98-4d09-9d38-02e3ff5ea24c.png)
+
 A react dashboard that displays the total revenue, users, likes and transactions along with an activity,  a product chart and daily schedules table.
 
 The project was bootstraped using [Create React App](https://create-react-app.dev/) with PWA template **cra-template-pwa** . The functionalities are leass the project is in its initial phase.
