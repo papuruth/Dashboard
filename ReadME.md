@@ -1,31 +1,27 @@
-# Dashboard
+## [Dashboard](https://p-folio.netlify.app)
+A react dashboard that displays the total revenue, users, likes and transactions along with an activity,  a product chart and daily schedules table.
 
-## About
-A dashboard is a place where data are displayed and visualized with the help of charts and graphs.
+The project was bootstraped using [Create React App](https://create-react-app.dev/) with PWA template **cra-template-pwa** . The functionalities are leass the project is in its initial phase.
 
-This dashboard is made using ReactJS as the main technology.
+### Local Setup
+**Prequisities**
+	* Node and npm installed (Node v14.16.0, npm v6.14.11)
+	* A working internet connection
 
-The Featires are:
-* Login and Signup with Google
-* Dashbord
-* User Listing
-* Filteration, Search & Pagination
-
-## Setup Locally
-```bash
-# clone this repo
-$ git clone https://github.com/papuruth/dashboard.git
-
-# cd to the cloned repo
-$ cd dashboard
-
-# run yarn install for the packages to be installed
+**Clone the repo and install the packages**
+```sh
+$ git clone https://github.com/papuruth/Dashboard.git
+$ cd Dashboard/
 $ yarn install
-
-# run yarn start for launching dev server
-$ yarn start
-
-# run yarn build for production build
-$ yarn build
-
 ```
+**Running th project**
+```sh
+$ yarn start
+```
+This will start the dev server on localhost with port 3000
+
+**Creating a production build**
+```sh
+$ yarn build
+```
+This will create an optimized production build ready for deployment.
