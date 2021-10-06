@@ -1,5 +1,5 @@
-/* Import font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap');
+/* Import fonts.css */
+@import url('./base/fonts.css');
 /* Importing base.css */
 @import url('./base/base.css');
 
